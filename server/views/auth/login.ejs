@@ -1,48 +1,65 @@
 <%- include ('../partials/header.ejs') %>
 
 <%- include ('../partials/main_nav.ejs') %>
+<style>
+    body {
+      background-color: #343a40;
+    }
+</style>
 
-<main class="container">
-
+      
 <!-- Message Area-->
-<%if(messages.length > 0) {%>
-    <div class="alert alert-danger">
-        <%= messages %>
-    </div>
-<% } %>
+<div class="flash-messages">
+    <% if (messages && messages.length > 0) { %>
+      <% messages.forEach(function(message) { %>
+        <div class="flash-message"><%= message %></div>
+      <% }); %>
+    <% } %>
+  </div>
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
+<main class="container">
 <div class="row">
-    <div class="offset-md-4 col-md-4">
-        <h1>Please Login</h1>
+    <div class="col-md-12">
+        <h1 style="text-align: center">Login</h1><br>
         <form action="" method="POST" autocomplete="off">
             <fieldset class="form-group">
-                <label for="username">Username: </label>
+                <label for="username"> </label>
                 <input type="text" class="form-control"
                 name="username" placeholder="Enter username"
                 id="username" required autofocus>
             </fieldset>
 
             <fieldset class="form-group">
-                <label for="password">Password: </label>
+                <label for="password"> </label>
                 <input type="password" class="form-control"
                 name="password" placeholder="Enter password"
                 id="password" required>
-                or
-                <a href="/register" class="">Register Here</a>
             </fieldset>
+            <br>
 
             <fieldset class="form-group text-right">
-                <input type="submit" class="btn btn-success" value="Login">
+                <input type="submit" class="btn btn-dark" value="Login" style="width: 280px; height: 50px;"><br><br>
                 <a href="/">
-                    <input type="button" class="btn btn-warning" value="Cancel">
+                    <input type="button" class="btn btn-light" value="Cancel" style="width: 280px;">
                 </a>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <br><br>
+                Not yet a user?
+                <a href="/register" class=""><kbd>Register here</kbd></a>
             </fieldset>
 
         </form>
     </div>
 </div>
 
+
+
 </main>
+
+
 
 <%- include ('../partials/bottom_nav.ejs') %>
 

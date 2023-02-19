@@ -57,10 +57,8 @@
                     <% } else { %>
                     <a class="nav-link" href="/contact">
                     <% } %>
-                    <i class="fa-solid fa-address-card"></i> Contact Me </a>
+                    <i class="fa-solid fa-circle-nodes"></i> Connect </a>
                 </li>
-
-                <li class="nav-item"><a class="nav-link"></i>||</a></li>
 
                 <li class="nav-item">
                     <% if (title == "Users") { %>
@@ -68,9 +66,11 @@
                     <% } else { %>
                     <a class="nav-link" href="/user-list">
                     <% } %>
-                    <i class="fa-solid fa-users"></i></i></i> Members Area
+                    <i class="fa-solid fa-users"></i></i></i> Contacts
                         </a>
                 </li>
+
+                <li class="nav-item"><a class="nav-link"></i>||</a></li>
 
                 <% if(typeof displayName == 'string' && displayName) { %>
                     <li class="navbar-text"><i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %></li>

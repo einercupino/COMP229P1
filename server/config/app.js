@@ -1,22 +1,22 @@
-//Einer Cupino - 301233614 - COMP229 Section 004 - Feb 3, 2022
+//Einer Cupino - 301233614 - COMP229 Section 004 - Feb 19, 2022
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
-//modules for authentication
+//Modules for Authentication
 let session = require('express-session');
 let passport = require('passport');
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
 let flash = require('connect-flash');
 
-//database setup
+//Modules for Database setup
 let mongoose = require('mongoose');
 let DB = require('./db');
 
-//point mongoose to the db URI
+//Point mongoose to the DB URI
 mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('strictQuery',false);
 
@@ -28,11 +28,11 @@ mongoDB.once('open', ()=>{
 
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let userlistRouter = require('../routes/userlist'); //db
+let userlistRouter = require('../routes/userlist'); //Pointing to the DB
 
 let app = express();
 
-// view engine setup
+// View engine setup
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
@@ -43,36 +43,36 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
-//setup express session
+//Setup express session
 app.use(session({
   secret: "SomeSecret",
   saveUninitialized: false,
   resave: false
 }));
 
-//initialize flash
+//Initialize flash
 app.use(flash());
 
-//intialize passport
+//Intialize passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-//passport user configuration
+//Passport user configuration
 
-//create a Member Model Instance
+//Create a Member Model Instance
 let memberModel = require('../models/member');
 let Member = memberModel.Member;
 
-//implement a User Authentication Strategy
+//Implement a User Authentication Strategy
 passport.use(Member.createStrategy());
 
-//serialize and deserialize the user info
+//Serialize and deserialize the user info
 passport.serializeUser(Member.serializeUser());
 passport.deserializeUser(Member.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/user-list', userlistRouter); //db
+app.use('/user-list', userlistRouter); //Point to the DB page
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -2,51 +2,60 @@
 
 <%- include ('../partials/main_nav.ejs') %>
 
-<main class="container">
+<style>
+    body {
+      background-color: #343a40;
+    }
+</style>
 
     <!-- Message Area-->
-    <%if(messages.length > 0) {%>
-        <div class="alert alert-danger">
-            <%= messages %>
-        </div>
-    <% } %>
+    <div class="flash-messages">
+        <% if (messages && messages.length > 0) { %>
+          <% messages.forEach(function(message) { %>
+            <div class="flash-message"><%= message %></div>
+          <% }); %>
+        <% } %>
+      </div>
+
     <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <main class="container">
     <div class="row">
-        <div class="offset-md-4 col-md-4">
-            <h1>Please Register</h1>
+        <div class="col-md-12">
+            <h1 style="text-align: center">Register User</h1><br>
             <form method="POST" autocomplete="off">
                 <fieldset class="form-group">
-                    <label for="username">Username: </label>
+                    <label for="username"></label>
                     <input type="text" class="form-control"
-                    name="username" placeholder="Enter username"
+                    name="username" placeholder="Username"
                     id="username" required autofocus>
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <label for="password">Password: </label>
+                    <label for="password"> </label>
                     <input type="password" class="form-control"
-                    name="password" placeholder="Enter password"
+                    name="password" placeholder="Password"
                     id="password" required>
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <label for="email">Email: </label>
+                    <label for="email"></label>
                     <input type="email" class="form-control"
-                    name="email" placeholder="Enter email address"
+                    name="email" placeholder="Email address"
                     id="email" required>
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <label for="displayName">Display Name: </label>
+                    <label for="displayName"></label>
                     <input type="text" class="form-control"
-                    name="displayName" placeholder="Enter display name"
+                    name="displayName" placeholder="Display name"
                     id="displayName" required>
+                    <br>
                 </fieldset>
 
                 <fieldset class="form-group text-right">
-                    <input type="submit" class="btn btn-success" value="Register">
+                    <input type="submit" class="btn btn-success" value="Register" style="width: 280px; height: 50px;"> <br><br>
                     <a href="/">
-                        <input type="button" class="btn btn-warning" value="Cancel">
+                        <input type="button" class="btn btn-light" value="Cancel" style="width: 280px">
                     </a>
                 </fieldset>
 
