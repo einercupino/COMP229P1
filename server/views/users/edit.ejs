@@ -2,12 +2,16 @@
 
 <%- include ('../partials/main_nav.ejs') %>
 
-
-<div class="container-fluid justify-content-center" style="background-color: #CFD8DC;">
-    <br><br><br><br><br><br>
+<style>
+    body {
+      background-color: #343a40;
+    }
+</style>
+    <br><br><br><br><br><br><br><br>
+    <main class="container">
     <div class="row">
-        <div class="offset-md-4 col-md-4">
-            <h1>Edit <kbd> <%= user.fname %></kbd>'s details </h1>
+        <div class="col-md-12">
+            <h1>Edit <kbd> <%= user.fname %></kbd>'s details </h1><br>
             <form class="form" method="POST">
                 <div class="form-group">
                     <label for="fnameTextField">First Name</label>
@@ -17,7 +21,7 @@
                     name="fname" 
                     value="<%= user.fname %>"
                     required>
-                </div>
+                </div><br>
                 <div class="form-group">
                     <label for="lnameTextField">Last Name</label>
                     <input type="text" class="form-control"
@@ -26,7 +30,7 @@
                     name="lname" 
                     value="<%= user.lname %>"
                     required>
-                </div>
+                </div><br>
                 <div class="form-group">
                     <label for="contactTextField">Contact Number</label>
                     <input type="text" class="form-control"
@@ -35,7 +39,7 @@
                     name="contact" 
                     value="<%= user.contact %>"
                     required>
-                </div>
+                </div><br>
                 <div class="form-group">
                     <label for="emailTextField">Email</label>
                     <input type="text" class="form-control"
@@ -44,7 +48,7 @@
                     name="email" 
                     value="<%= user.email %>"
                     required>
-                </div>
+                </div><br>
                 <div class="form-group">
                     <label for="locationTextField">Location</label>
                     <input type="text" class="form-control"
@@ -53,22 +57,19 @@
                     name="location" 
                     value="<%= user.location %>"
                     required>
-                </div>
+                </div><br>
 
-                <button class="btn btn-primary" type="submit">
+                <button class="btn btn-primary" type="submit" style="width: 100%; height: 50px;">
                     <i class="fas fa-edit"> </i> Save Changes   
-                </button>
+                </button> <br><br>
 
-                <a href="/user-list" class="btn btn-warning">
+                <a href="/user-list" class="btn btn-light" style="width: 100%; height: 50px;">
                     <i class="fas fa-undo"></i> Cancel</a>
-
             </form>
         </div>
     </div>
-</div>
-<div class="container-fluid justify-content-center" style="background-color: #CFD8DC;">
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-</div>
+</main>
+
 
 <%- include ('../partials/bottom_nav.ejs') %>
 

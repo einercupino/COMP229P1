@@ -2,63 +2,66 @@
 
 <%- include ('../partials/main_nav.ejs') %>
 
+<style>
+    body {
+      background-color: #343a40;
+    }
+</style>
 
-<div class="container-fluid justify-content-center" style="background-color: #CFD8DC;">
     <br><br><br><br><br><br>
+    <main class="container">
     <div class="row">
-        <div class="offset-md-4 col-md-4">
-            <h1>Add<kbd>Contact</kbd></h1>
+        <div class="col-md-12">
+            <h1>Add a <kbd>Contact</kbd></h1><br>
             <form class="form" method="POST">
                 <div class="form-group">
-                    <label for="fnameTextField">First Name</label>
+                    <label for="fnameTextField"></label>
                     <input type="text" class="form-control"
                     if="fnameTextField"
                     placeholder="Enter First Name"
                     name="fname" required>
                 </div>
                 <div class="form-group">
-                    <label for="lnameTextField">Last Name</label>
+                    <label for="lnameTextField"></label>
                     <input type="text" class="form-control"
                     if="lnameTextField"
                     placeholder="Enter Last Name"
                     name="lname" required>
                 </div>
                 <div class="form-group">
-                    <label for="contactTextField">Contact Number</label>
+                    <label for="contactTextField"></label>
                     <input type="text" class="form-control"
                     if="contactTextField"
                     placeholder="Enter Contact Number"
                     name="contact" required>
                 </div>
                 <div class="form-group">
-                    <label for="emailTextField">Email</label>
+                    <label for="emailTextField"></label>
                     <input type="text" class="form-control"
                     if="emailTextField"
                     placeholder="Enter Email Address"
                     name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="locationTextField">Location</label>
+                    <label for="locationTextField"></label>
                     <input type="text" class="form-control"
                     if="locationTextField"
                     placeholder="Enter Location"
                     name="location" required>
                 </div>
-
-                <button class="btn btn-primary" type="submit">
-                    <i class="fas fa-edit"> </i>Submit   
-                </button>
-
-                <a href="/user-list" class="btn btn-warning">
+                <br>
+                <button class="btn btn-primary" type="submit" style="width: 100%; height: 50px;">
+                    <i class="fas fa-edit"></i> Submit   
+                </button><br><br>
+                
+                <a href="/user-list" class="btn btn-light" style="width: 100%; height: 50px;">
                     <i class="fas fa-undo"></i> Cancel</a>
 
             </form>
         </div>
     </div>
-</div>
-<div class="container-fluid justify-content-center" style="background-color: #CFD8DC;">
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-</div>
+</main>
+
 
 <%- include ('../partials/bottom_nav.ejs') %>
 
