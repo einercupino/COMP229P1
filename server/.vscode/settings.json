@@ -1,3 +1,4 @@
 {
-    "appService.defaultWebAppToDeploy": "None"
+    "appService.defaultWebAppToDeploy": "/subscriptions/510e925c-f265-4015-a043-6c5a6dae505a/AppServices/subscriptions/510e925c-f265-4015-a043-6c5a6dae505a/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/einercupino",
+    "appService.deploySubpath": "."
 }
